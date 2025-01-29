@@ -53,7 +53,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"relative_URL": {
-								"value": "@pipeline().parameters.source_relative_url",
+								"value": "@variables('source_relative_url')",
 								"type": "Expression"
 							}
 						}
@@ -65,7 +65,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"sink_file_name": {
-								"value": "@pipeline().parameters.sink_file_name_to_save",
+								"value": "@variables('sink_file_name_var')",
 								"type": "Expression"
 							}
 						}
@@ -73,12 +73,14 @@
 				]
 			}
 		],
-		"parameters": {
+		"variables": {
 			"source_relative_url": {
-				"type": "string"
+				"type": "String",
+				"defaultValue": "cloudboxacademy/covid19/main/ecdc_data/hospital_admissions.csv"
 			},
-			"sink_file_name_to_save": {
-				"type": "string"
+			"sink_file_name_var": {
+				"type": "String",
+				"defaultValue": "hospital_admissions.csv"
 			}
 		},
 		"annotations": []

@@ -50,17 +50,37 @@
 				"inputs": [
 					{
 						"referenceName": "ds_cases_and_deaths_raw_http",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"relative_URL": {
+								"value": "@pipeline().parameters.source_relative_url",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_cases_and_deaths_raw_csv",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"sink_file_name": {
+								"value": "@pipeline().parameters.sink_file_name_to_save",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"source_relative_url": {
+				"type": "string"
+			},
+			"sink_file_name_to_save": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
